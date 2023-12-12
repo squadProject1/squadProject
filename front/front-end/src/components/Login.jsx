@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Login = () => {
+  const[register,setRegister]=useState(false)
     return (
       <div className=' w-full min-h-screen'>
+  {!register?<div>
   <div style={{'height': '422px'}} className=' border-2 border-gray-400 bg-white absolute w-96 h-3/4 top-16 right-72 text-black flex justify-center items-center gap-3'   >
       <div className='w-full ml-7'>
          <img className=' w-44 -mt-20 cursor-pointer' style={{'margin-top': '1px',
@@ -35,8 +37,9 @@ const Login = () => {
        </div>
        </div>
        <div className='bg-white absolute -mt-16 right-72 top-3/4 w-96 h-12 flex justify-center align-center items-center border-2 border-gray' >
-          <h3>Don't have an account?<span className=' cursor-pointer text-blue'>Register</span></h3>
+          <h3>Don't have an account?<span onClick={()=> setRegister(true)} className=' cursor-pointer text-blue'>Register</span></h3>
        </div>
+       </div>:<h1>hello</h1>}
        <div className=' w-36 absolute ' style={{    'top': '76%','right': '30%'}}>
        <h3 className=' ml-3'>Download the app</h3>
        <div className='flex gap-3 mt-4'>
