@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import Register from './Register'
 const Login = () => {
   const[register,setRegister]=useState(false)
     return (
@@ -36,10 +36,6 @@ const Login = () => {
        <h4 className='cursor-pointer text-center mt-6 -ml-16 text-xs'>Forget Password?</h4>
        </div>
        </div>
-       <div className='bg-white absolute -mt-16 right-72 top-3/4 w-96 h-12 flex justify-center align-center items-center border-2 border-gray' >
-          <h3>Don't have an account?<span onClick={()=> setRegister(true)} className=' cursor-pointer text-blue'>Register</span></h3>
-       </div>
-       </div>:<h1>hello</h1>}
        <div className=' w-36 absolute ' style={{    'top': '76%','right': '30%'}}>
        <h3 className=' ml-3'>Download the app</h3>
        <div className='flex gap-3 mt-4'>
@@ -47,6 +43,11 @@ const Login = () => {
           <img className=' w-36 h-10 cursor-pointer' src="https://static.cdninstagram.com/rsrc.php/v3/yk/r/NtqqucWkedn.png" alt="" />
        </div>
       </div>
+       <div className='bg-white absolute -mt-16 right-72 top-3/4 w-96 h-12 flex justify-center align-center items-center border-2 border-gray' >
+          <h3>Don't have an account?<span onClick={()=> setRegister(true)} className=' cursor-pointer text-blue'>Register</span></h3>
+       </div>
+       </div>:<Register register={register} setRegister={setRegister}/>}
+       
       <div>
       <img src="https://www.instagram.com/images/instagram/xig/homepage/screenshots/screenshot4.png?__d=www" alt="" />
   <img src="https://www.instagram.com/images/instagram/xig/homepage/screenshots/screenshot2.png?__d=www" alt="" />
