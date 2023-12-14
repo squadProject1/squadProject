@@ -6,9 +6,10 @@ const Register = ({register,setRegister}) => {
     const[fullname,setFullname]=useState('')
     const[password,setPassword]=useState('')
     const[added,setAdded]=useState(false)
-    // const add=()=>{
-    //     axios.post('http://127.0.0.1/users/add',{})
-    // }
+    const add=()=>{
+        axios.post('http://127.0.0.1:3000/users/addUser',{userName:username,userPassword:password,userEmail:email,fullName:fullname})
+        .then(r=>{setAdded(true)}).catch(err=>console.log('err',err))
+      }
 
   return (
     <div style={{'height': '620px','left':'40%'}} className=' border-2 border-gray-400 bg-white absolute w-72 h-auto top-16 left-1/2 text-black flex justify-center items-center gap-3'>
@@ -45,10 +46,10 @@ const Register = ({register,setRegister}) => {
 <br /><h3 className='text-xs text-gray-400 mt-5'>By registering, you agree to our Terms and Conditions, Privacy Policy and Cookie Policy.</h3></h3>
     <button className='bg-button text-white w-52 h-9 mt-5 ml-1 rounded cursor-default' onClick={()=>
     {  
-        //  add()
-        setAdded(true)
+         add()
+        
         setTimeout(()=>setRegister(!register),2000)}}>Register</button>
-        {added&&<div className='flex relative bg-white' style={{
+       {added&& <div className='flex relative bg-white' style={{
             'animation-name': 'example',
             'animation-duration': '3s',
             
@@ -60,9 +61,10 @@ const Register = ({register,setRegister}) => {
     'height':' 64px',
     'box-shadow': '2px 1px 12px 1px gray',
     'width': '324px'}}>
-            <img className='w-12'  src="https://static.vecteezy.com/system/resources/previews/015/304/837/original/blue-verified-tick-valid-seal-icon-in-flat-style-design-isolated-on-white-background-validation-concept-vector.jpg" alt="" />
+       <img className='w-12'  src="https://static.vecteezy.com/system/resources/previews/015/304/837/original/blue-verified-tick-valid-seal-icon-in-flat-style-design-isolated-on-white-background-validation-concept-vector.jpg" alt="" />
             <h3 className='text-green'>user added successfully</h3>
             </div>}
+           
     </div>
     </div>
   )

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Register from './Register'
 const Login = () => {
   const[register,setRegister]=useState(false)
+  const[email,setEmail]=useState('')
+  const[password,setPassword]=useState('')
     return (
       <div className=' w-full min-h-screen'>
   {!register?<div>
@@ -11,15 +13,19 @@ const Login = () => {
       'height': '107px',
       'margin-left': '53px'}} src="https://i0.wp.com/www.dafontfree.io/wp-content/uploads/2020/12/instagram-new.png?resize=1100%2C750&ssl=1" alt="" />
       <input type="email"
+      onChange={(e)=>setEmail(e.target.value)}
       required
       placeholder='Phone number,Email or Username'
       className='w-3/4 h-11 p-4 bg-button-bg text-xs'
        /><br/>
        <input type="password"
+       onChange={(e)=>setPassword(e.target.value)}
        required 
        placeholder='Password'
        className='w-3/4 h-11 p-4 bg-button-bg text-xs mt-2 '/><br/>
-       <button className='bg-button text-white w-52 h-9 mt-5 ml-11 rounded cursor-default'>Connect</button>
+       <button 
+      //  onClick={()=>}
+       className='bg-button text-white w-52 h-9 mt-5 ml-11 rounded cursor-default'>Connect</button>
       <div className='mt-5'>
       <hr className='text-gray-400 w-1/3' /><h4 className='absolute left-40 text-gray-400 top-65' style={{
       top: '68%'}}>Or</h4>
