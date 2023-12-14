@@ -8,7 +8,12 @@ const Register = ({register,setRegister}) => {
     const[added,setAdded]=useState(false)
     const add=()=>{
         axios.post('http://127.0.0.1:3000/users/addUser',{userName:username,userPassword:password,userEmail:email,fullName:fullname})
-        .then(r=>{setAdded(true)}).catch(err=>console.log('err',err))
+        .then(r=>{
+          setAdded(true)
+          setTimeout(()=>setRegister(!register),2000)}).catch(err=>console.log('err',err))
+       
+          
+        
       }
 
   return (
@@ -47,8 +52,8 @@ const Register = ({register,setRegister}) => {
     <button className='bg-button text-white w-52 h-9 mt-5 ml-1 rounded cursor-default' onClick={()=>
     {  
          add()
-        
-        setTimeout(()=>setRegister(!register),2000)}}>Register</button>
+       
+        }}>Register</button>
        {added&& <div className='flex relative bg-white' style={{
             'animation-name': 'example',
             'animation-duration': '3s',
