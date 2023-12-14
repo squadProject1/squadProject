@@ -1,19 +1,9 @@
 .App {
   text-align: center;
 }
-
-
-
-
-
-
-
 button.add-biog {
   margin-top: 10px;
 }
-
-
-
 .add-bio{
   cursor:pointer;
   padding:8px;
@@ -112,19 +102,19 @@ textarea {
 }
 .connected-icon {
   color: green;
-  margin-right: 5px; /* Adjust margin if needed */
+  margin-right: 5px;
 }
 .not-connected-icon{
   color: red;
   margin-right: 5px;
 }
-/* Optional: Style for the connected text */
+
 .connected-text {
-  color: green; /* This will match the icon color */
+  color: green; 
   font-weight: bold;
 }
 .not-connected-text {
-  color: red; /* This will match the icon color */
+  color: red; 
   font-weight: bold;
 }
 
