@@ -7,11 +7,12 @@ const Register = ({register,setRegister}) => {
     const[password,setPassword]=useState('')
     const[added,setAdded]=useState(false)
     const add=()=>{
-        axios.post('http://127.0.0.1:3000/users/addUser',{userName:username,userPassword:password,userEmail:email,fullName:fullname})
+     
+        axios.post('http://127.0.0.1:3000/users/register',{userName:username,userPassword:password,userEmail:email,fullName:fullname})
         .then(r=>{
           setAdded(true)
           setTimeout(()=>setRegister(!register),2000)}).catch(err=>console.log('err',err))
-       
+        
           
         
       }

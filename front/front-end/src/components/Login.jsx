@@ -1,21 +1,33 @@
-import React, { useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Register from './Register'
 import axios from 'axios'
-const Login = () => {
+import User from './User.jsx'
+export  const token=createContext(null)
+const Login = ({token,setToken}) => {
+
+
+ const user=useNavigate()
+
   const[register,setRegister]=useState(false)
   const[email,setEmail]=useState('')
   const[password,setPassword]=useState('')
   const[data,setData]=useState([])
+  const[logged,setLogged]=useState(false)
  const getdata=()=>{
-  axios.post(`http://127.0.0.1:3000/users/login`,{email:email,password:password}).then(r=>setData(r.data))
+  axios.post(`http://127.0.0.1:3000/users/login`,{email:email,password:password}).then(r=>
+  { setData(r.data)
+   setToken(r.data.token)
+     setLogged(true)
+  })
   .catch(err=>console.log(err))
   }
-  console.log(data);
   
-
     return (
       <div className=' w-full min-h-screen'>
-       
+      
+{console.log(data.token)}
+      
   {!register?<div>
   <div style={{'height': '422px'}} className=' border-2 border-gray-400 bg-white absolute w-96 h-3/4 top-16 right-72 text-black flex justify-center items-center gap-3'   >
       <div className='w-full ml-7'>
@@ -33,13 +45,12 @@ const Login = () => {
        required 
        placeholder='Password'
        className='w-3/4 h-11 p-4 bg-button-bg text-xs mt-2 '/><br/>
-       {data==='user not found'&&<h1>user not found</h1>}
+       {data==='user not found'&&<h1 className=' text-red ml-24 underline text-sm '>user not found</h1>}
        <button 
        onClick={()=>getdata()}
        className='bg-button text-white w-52 h-9 mt-5 ml-11 rounded cursor-default'>Connect</button>
       <div className='mt-5'>
-      <hr className='text-gray-400 w-1/3' /><h4 className='absolute left-40 text-gray-400 top-65' style={{
-      top: '68%'}}>Or</h4>
+      <hr className='text-gray-400 w-1/3' />
       <span><hr className='text-gray-400 w-1/3 ml-40'/></span>
       </div>
       <div className='ml-7 grid ' style={{'grid-template-columns':'10% 90%','margin-top': '22px'}}>
@@ -85,7 +96,12 @@ const Login = () => {
           <h4>Meta Verified</h4>
       </div>
       <h3 className='text-gray-dark text-xs absolute bottom-0 left-1/2'>© 2023 Instagram par Meta</h3>
+      {data.result&&data.result.length===1&&
+      <User data={data.token}/>&&user('/user')}
+      {/* {console.log(Array.isArray(data)&&data.length!==0&&<User data={data.token}/>&&user('/user'))} */}
       </div>
+    
+     
     )
   }
   
