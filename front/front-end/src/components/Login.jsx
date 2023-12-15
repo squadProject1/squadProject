@@ -1,11 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Register from './Register'
+import axios from 'axios'
 const Login = () => {
   const[register,setRegister]=useState(false)
   const[email,setEmail]=useState('')
   const[password,setPassword]=useState('')
+  const[data,setData]=useState([])
+ const getdata=()=>{
+  axios.post(`http://127.0.0.1:3000/users/login`,{email:email,password:password}).then(r=>setData(r.data))
+  .catch(err=>console.log(err))
+  }
+  console.log(data);
+  
+
     return (
       <div className=' w-full min-h-screen'>
+       
   {!register?<div>
   <div style={{'height': '422px'}} className=' border-2 border-gray-400 bg-white absolute w-96 h-3/4 top-16 right-72 text-black flex justify-center items-center gap-3'   >
       <div className='w-full ml-7'>
@@ -23,8 +33,9 @@ const Login = () => {
        required 
        placeholder='Password'
        className='w-3/4 h-11 p-4 bg-button-bg text-xs mt-2 '/><br/>
+       {data==='user not found'&&<h1>user not found</h1>}
        <button 
-      //  onClick={()=>}
+       onClick={()=>getdata()}
        className='bg-button text-white w-52 h-9 mt-5 ml-11 rounded cursor-default'>Connect</button>
       <div className='mt-5'>
       <hr className='text-gray-400 w-1/3' /><h4 className='absolute left-40 text-gray-400 top-65' style={{
