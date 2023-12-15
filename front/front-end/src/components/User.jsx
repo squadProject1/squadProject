@@ -5,7 +5,7 @@ const User = ({token}) => {
     useEffect(()=>{
         axios.get(`http://127.0.0.1:3000/users/user`,{headers:{
             "Authorization":`Bearer ${token}`
-        }}).then(r=>console.log('user',r))
+        }}).then(r=>console.log('user',r,token))
         .catch(err=>console.log(err))
     },[])
   return (

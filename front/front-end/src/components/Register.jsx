@@ -10,6 +10,7 @@ const Register = ({register,setRegister}) => {
      
         axios.post('http://127.0.0.1:3000/users/register',{userName:username,userPassword:password,userEmail:email,fullName:fullname})
         .then(r=>{
+          console.log('r',r);
           setAdded(true)
           setTimeout(()=>setRegister(!register),2000)}).catch(err=>console.log('err',err))
         

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Register from './Register'
 import axios from 'axios'
 import User from './User.jsx'
+import $ from 'jquery'
 export  const token=createContext(null)
 const Login = ({token,setToken}) => {
 
@@ -35,6 +36,7 @@ const Login = ({token,setToken}) => {
       'height': '107px',
       'margin-left': '53px'}} src="https://i0.wp.com/www.dafontfree.io/wp-content/uploads/2020/12/instagram-new.png?resize=1100%2C750&ssl=1" alt="" />
       <input type="email"
+      id='in1'
       onChange={(e)=>setEmail(e.target.value)}
       required
       placeholder='Phone number,Email or Username'
@@ -96,6 +98,7 @@ const Login = ({token,setToken}) => {
           <h4>Meta Verified</h4>
       </div>
       <h3 className='text-gray-dark text-xs absolute bottom-0 left-1/2'>© 2023 Instagram par Meta</h3>
+      {/* {data==='u have to fill all content'&& $('#in1').css({'backgroud-color':'red'})} */}
       {data.result&&data.result.length===1&&
       <User data={data.token}/>&&user('/user')}
       {/* {console.log(Array.isArray(data)&&data.length!==0&&<User data={data.token}/>&&user('/user'))} */}
