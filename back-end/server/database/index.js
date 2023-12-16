@@ -3,15 +3,16 @@ const mysqlConfig=require('./config.js')
 const connection = require('./config.js')
 
 
-connection.connect(() => {
-  console.log("Welcome to your Database");
+connection.connect((err) => {
+  if(err) console.log(err)
+ else console.log("Welcome to your Database");
 });
 
  module.exports={
   getAllUsers:(callback)=>{
   const sql='SELECT * FROM `user`'
-  connection.query(sql,function(err,res){
-    callback(err,res)
+  connection.query(sql,function(error,result){
+    callback(error,result)
   })
  },
  createUser:(obj , callback)=>{
