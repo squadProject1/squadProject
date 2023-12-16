@@ -1,9 +1,14 @@
 {
+<<<<<<< HEAD
   "name": "hackmo",
+=======
+  "name": "back-end",
+>>>>>>> 3830491bfa8fb40bb4d01f29e64dc8d62a24bef9
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "react-dev": "webpack --mode development --watch",
     "server-dev": "nodemon server/index.js"
   },
@@ -30,5 +35,20 @@
     "react": "17.0.2",
     "react-dom": "^17.0.2",
     "serve-favicon": "^2.5.0"
+=======
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server-dev": "nodemon back-end/index.js",
+    "react-dev": "webpack --mode development --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jquery": "^3.7.1",
+    "mysql2": "^3.6.5",
+    "nodemon": "^3.0.2"
+>>>>>>> 3830491bfa8fb40bb4d01f29e64dc8d62a24bef9
   }
 }
