@@ -1,5 +1,6 @@
 const {connection} = require("../database/index.js");
 const jwt=require('jsonwebtoken')
+const db=require('../database/index.js')
 const JWT_KEY='bedoui123'
 const add = async (req, res) => {
     const {userName,userEmail}=req.body;

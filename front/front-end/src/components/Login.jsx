@@ -50,7 +50,7 @@ const Login = ({token,setToken}) => {
        {logged&&<h1 className=' text-red ml-24 underline text-sm '>user not found</h1>}
        <button 
        onClick={()=>getdata()}
-       className='bg-button text-white w-52 h-9 mt-5 ml-11 rounded cursor-default'>Connect</button>
+       className='bg-button text-white w-52 h-9 mt-5 ml-11  cursor-default'>Connect</button>
       <div className='mt-5'>
       <hr className='text-gray-400 w-1/3' />
       <span><hr className='text-gray-400 w-1/3 ml-40'/></span>
