@@ -1,8 +1,16 @@
 .App {
   text-align: center;
+  /*background-color: rgb(128, 0, 47);*/
 }
+/*.modal{
+  background-color:rgb(128, 0, 47);
+  color:white;
+  
+}*/
 button.add-biog {
   margin-top: 10px;
+  background-color: rgb(128, 0, 47);
+  color:white;
 }
 .add-bio{
   cursor:pointer;
@@ -14,12 +22,19 @@ button.add-biog {
   border-radius:8px
 }
 .selection{
+  position:absolute;
+  
+  width:100%;
   list-style: none;
   display:flex;
   align-items: center;
   justify-content:space-evenly;
-  margin-top:80px;
-  background-color: #282c34;
+  margin-top:20px;
+  background-color:rgb(128, 0, 47) ;
+}
+.selection li button{
+  background-color: rgb(128, 0, 47);
+  color:white
 }
 .article-form-container {
   max-width: 600px;
@@ -27,7 +42,8 @@ button.add-biog {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background-color: rgb(128, 0, 47);
+  color: #ccc;
 }
 
 .article-form {
@@ -56,11 +72,11 @@ textarea {
   padding: 8px;
   font-size: 16px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border-radius: 4px solid rgb(128, 0, 47);
 }
 
 .add-biog{
-  background-color: #e1ecf4;
+  background-color: rgb(128, 0, 47);
   border-radius: 3px;
   border: 1px solid #7aa7c7;
   box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
@@ -87,18 +103,18 @@ textarea {
 
 .add-biog:hover,
 .add-biog:focus {
-  background-color: #b3d3ea;
-  color: #2c5777;
+  background-color: rgb(68, 0, 31);
+  color: white;
 }
 
 .add-biog:focus {
-  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+  box-shadow: 0 0 0 4px rgb(68, 0, 31)(0, 149, 255, .15);
 }
 
 .add-biog:active {
-  background-color: #a0c7e4;
+  background-color: rgb(68, 0, 31);
   box-shadow: none;
-  color: #2c5777;
+  color: white;
 }
 .connected-icon {
   color: green;
@@ -119,11 +135,15 @@ textarea {
 }
 
 
-/*footer*/
+
 .profile-footer {
-  background-color: #333;
+  background-color: rgb(128, 0, 47);
   color: #fff;
   padding: 40px 0;
+  margin-bottom :0;
+  position:absolute;
+  bottom:0%;
+  width:100%
 }
 
 .footer-content {
@@ -134,11 +154,12 @@ textarea {
 }
 
 .footer-section {
+  background-color: rgb(128, 0, 47);
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  flex: 1;
-  margin-bottom: 20px;
+  flex: 2;
+  margin-bottom: 0px;
 }
 
 .footer-section h4 {
@@ -152,6 +173,7 @@ textarea {
 .social-media-links {
   list-style: none;
   padding: 0;
+  margin-left:50px;
   display: flex;
 }
 

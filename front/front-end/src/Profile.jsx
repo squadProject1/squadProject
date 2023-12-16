@@ -1,17 +1,32 @@
 import React,{useState,useEffect}  from 'react'
+import axios from 'axios'
 import CreatePost from './CreatePost.jsx'
+import SingleUser from './SingleUser.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook ,faTwitter, faInstagram} from '@fortawesome/free-brands-svg-icons';
-
+import { faSync } from '@fortawesome/free-solid-svg-icons';
 export default function Profile(){
-   
+   const [userData,setUserData]=useState({})
+   const [followers,setFollowers]=useState(0)
+   const [photo,setPhoto] = useState('')
+   const [refresh,setRefresh]=useState(false)
     useEffect(()=>{
-        setUser('zakaria')
-        setEmail('fake-email@gmail.com')
-    },[])
-
-    const [view,setView]=useState('')
+      
+      axios.get('http://localhost:3001/api/oneUser/4').then((message)=>{
+        setUserData(message.data[0])
+       
+      }).catch((err)=>console.log('there is error',err.message))
+              setUser(userData.userName)
+            testConnected(userData.userStatus)
+        setEmail(userData.userEmail)
+        setPhoto(userData.userPic)
+        setFollowers(userData.userFollowers)
+    },[refresh])
+    
+ 
+  const [phoclicked,setPhoclicked]=useState(false)
+    const [view,setView]=useState('singleuser')
     const [user,setUser]=useState('')
     const [email,setEmail]=useState('')
     const [addBiographie,setAddBiographie]=useState(false)
@@ -19,12 +34,23 @@ export default function Profile(){
     const [phone,setPhone]=useState('')
     const [validPhone,setValidPhone]=useState(false)
     const [connected,setConnected]=useState(false)
-const [followers,setFollowers]=useState(0)
 
 
+const updatePhoto = ()=>{
+  setPhoclicked(true)
+  
+}
+const sendUpdates  = ()=>{
+  const picture = photo
+  console.log(picture)
+ axios.put('http://localhost:3001/api/updateUserPhoto/',{userPic:picture}).then((results)=>console.log(results)).catch((err)=>console.log('there is an err on picture updating',err))
+}
        const addBio = ()=>{
         console.log(bioContent)
         setAddBiographie(false)
+        let updatedBio = bioContent
+        axios.put('http://localhost:3001/api/updateUserBio/2',{userBio:updatedBio}).then((updated)=>console.log(updated.data))
+        .catch((error)=>console.log('error on  updating',error))
        }
     const addPhone = (event)=>{
         setPhone(event.target.value)
@@ -36,8 +62,13 @@ const [followers,setFollowers]=useState(0)
        
 
     }
-const testConnected = ()=>{
-    setConnected(!connected)
+const testConnected = (status)=>{
+    
+    console.log(  userData.userStatus)
+    if(status !=='online'){
+      setConnected(false)
+    }
+    else setConnected(true)
 }
 
     const changeView =(view)=>{
@@ -49,23 +80,23 @@ const testConnected = ()=>{
         <div>
           
         <div className="modal" tabIndex="-1">
-            
+        <FontAwesomeIcon onClick={()=>{setRefresh(true)}} icon={faSync} />
         <div className="modal-dialog">
         <h2>followers: {followers} </h2>
-            <img className ='rounded' src="https://scontent.ftun16-1.fna.fbcdn.net/v/t39.30808-6/396967384_2073193743034360_1322149233104091581_n.jpg?stp=cp6_dst-jpg&_nc_cat=107&ccb=1-7&_nc_sid=783fdb&_nc_ohc=xMIWjFQDTnIAX982Bab&_nc_ht=scontent.ftun16-1.fna&oh=00_AfBv_k2RoI6baWb944P9FADoDM2F-h4zh_zlaEgq73lXRQ&oe=657D745B" alt="no-content" />
-           
+            <img onClick={()=>{updatePhoto()}} className ='rounded' src= {photo} alt="no-content" />
+           {phoclicked&& <div><input type="text" onChange={(e)=>{setPhoto(e.target.value)}} /> <button onClick={()=>{sendUpdates()}} >validate</button> </div>  }
           <div className="modal-content">
             <div className="modal-header">
               <h2 className="modal-title"> {user} </h2>
               <button type="button" className="add-biog" data-bs-dismiss="modal" aria-label="Close" onClick={()=>{setAddBiographie(true)}} >add a biographie</button>
 
               {addBiographie&& <div>
-                <textarea name="biographie" id="" cols="30" rows="10" onChange={(e)=>setBioContent(e.target.value)}></textarea>
+                <textarea name="biographie" id="bio-text" cols="30" rows="10" onChange={(e)=>setBioContent(e.target.value)}></textarea>
                 <button className='add-biog' onClick={()=>{addBio()}}>add</button>
                 </div>}
                 <div className="connected">
    
-    {/* You can place the icon next to connected text */}
+    
     {connected ? (
         <div>
         <span className="connected-text">connected</span>
@@ -104,7 +135,7 @@ const testConnected = ()=>{
   </li>
   
 </ul>
-  <button onClick={()=>{testConnected()}} >test change status connected button</button>
+  
   <footer className="profile-footer">
       <div className="footer-content">
         <div className="footer-section">
@@ -139,5 +170,5 @@ const testConnected = ()=>{
     )
     else if(view==="create")
         return <CreatePost changeView ={changeView} />
-    
+    else if(view==="singleuser"){return <SingleUser userData={userData} /> }
 }
