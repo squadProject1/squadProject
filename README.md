@@ -1,3 +1,0 @@
-# squadProject
-#test
-#test1
