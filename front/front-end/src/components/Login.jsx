@@ -19,15 +19,15 @@ const Login = ({token,setToken}) => {
   axios.post(`http://127.0.0.1:3000/users/login`,{email:email,password:password}).then(r=>
   { setData(r.data)
    setToken(r.data.token)
-     setLogged(true)
+     
   })
-  .catch(err=>console.log(err))
+  .catch(err=>setLogged(true))
   }
   
     return (
       <div className=' w-full min-h-screen'>
       
-{console.log(data.token)}
+{console.log(data)}
       
   {!register?<div>
   <div style={{'height': '422px'}} className=' border-2 border-gray-400 bg-white absolute w-96 h-3/4 top-16 right-72 text-black flex justify-center items-center gap-3'   >
@@ -47,7 +47,7 @@ const Login = ({token,setToken}) => {
        required 
        placeholder='Password'
        className='w-3/4 h-11 p-4 bg-button-bg text-xs mt-2 '/><br/>
-       {data==='user not found'&&<h1 className=' text-red ml-24 underline text-sm '>user not found</h1>}
+       {logged&&<h1 className=' text-red ml-24 underline text-sm '>user not found</h1>}
        <button 
        onClick={()=>getdata()}
        className='bg-button text-white w-52 h-9 mt-5 ml-11 rounded cursor-default'>Connect</button>
