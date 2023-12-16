@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Profile from './Profile.jsx'
-import Posts from './Posts.jsx'
-import CreatePost from './CreatePost.jsx'
+import Profile from './components/Profile.jsx'
+import Posts from './components/Posts.jsx'
+import CreatePost from './components/Posts.jsx'
 import './App.css';
 
 function App() {
