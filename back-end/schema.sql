@@ -31,7 +31,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`user` (
   `userGender` VARCHAR(45) NULL,
   `userFollowers` INT NULL,
   `userStatus` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`))
+  `fullName` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
 ENGINE = InnoDB;
 
 
