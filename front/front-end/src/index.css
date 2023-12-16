@@ -6,3 +6,208 @@
     0%   { left:0%; top:0px;}
     25%  { top:-100px;}
     100%{top:-100px}}
+
+
+
+    .App {
+        text-align: center;
+        /*background-color: rgb(128, 0, 47);*/
+      }
+      /*.modal{
+        background-color:rgb(128, 0, 47);
+        color:white;
+        
+      }*/
+      button.add-biog {
+        margin-top: 10px;
+        background-color: rgb(128, 0, 47);
+        color:white;
+      }
+      .add-bio{
+        cursor:pointer;
+        padding:8px;
+        background-color: #282c34;
+        color:white;
+        width:auto;
+        height:auto;
+        border-radius:8px
+      }
+      .selection{
+        position:absolute;
+        
+        width:100%;
+        list-style: none;
+        display:flex;
+        align-items: center;
+        justify-content:space-evenly;
+        margin-top:20px;
+        background-color:rgb(128, 0, 47) ;
+      }
+      .selection li button{
+        background-color: rgb(128, 0, 47);
+        color:white
+      }
+      .article-form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgb(128, 0, 47);
+        color: #ccc;
+      }
+      
+      .article-form {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .form-group {
+        display:flex;
+        align-items: center;
+        justify-content:center;
+        margin-bottom: 15px;
+      }
+      
+      label {
+        font-weight: bold;
+      }
+      .rounded{
+        height:150px;
+        width:150px;
+        border-radius: 50%;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+        border-radius: 5px;
+        border-radius: 4px solid rgb(128, 0, 47);
+      }
+      
+      .add-biog{
+        background-color: rgb(128, 0, 47);
+        border-radius: 3px;
+        border: 1px solid #7aa7c7;
+        box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+        box-sizing: border-box;
+        color: #39739d;
+        cursor: pointer;
+        display: inline-block;
+        font-family:system-ui,"Segoe UI","Liberation Sans",sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.15385;
+        margin: 0;
+        outline: none;
+        padding: 8px .8em;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: baseline;
+        white-space: nowrap;
+      }
+      
+      .add-biog:hover,
+      .add-biog:focus {
+        background-color: rgb(68, 0, 31);
+        color: white;
+      }
+      
+      .add-biog:focus {
+        box-shadow: 0 0 0 4px rgb(68, 0, 31)(0, 149, 255, .15);
+      }
+      
+      .add-biog:active {
+        background-color: rgb(68, 0, 31);
+        box-shadow: none;
+        color: white;
+      }
+      .connected-icon {
+        color: green;
+        margin-right: 5px;
+      }
+      .not-connected-icon{
+        color: red;
+        margin-right: 5px;
+      }
+      
+      .connected-text {
+        color: green; 
+        font-weight: bold;
+      }
+      .not-connected-text {
+        color: red; 
+        font-weight: bold;
+      }
+      
+      
+      
+      .profile-footer {
+        background-color: rgb(128, 0, 47);
+        color: #fff;
+        padding: 40px 0;
+        margin-bottom :0;
+        position:absolute;
+        bottom:0%;
+        width:100%
+      }
+      
+      .footer-content {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+      
+      .footer-section {
+        background-color: rgb(128, 0, 47);
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex: 2;
+        margin-bottom: 0px;
+      }
+      
+      .footer-section h4 {
+        margin-bottom: 10px;
+      }
+      
+      .footer-section p {
+        margin-bottom: 8px;
+      }
+      
+      .social-media-links {
+        list-style: none;
+        padding: 0;
+        margin-left:50px;
+        display: flex;
+      }
+      
+      .social-media-links li {
+        margin-right: 10px;
+      }
+      
+      .social-media-links a {
+        color: #fff;
+        font-size: 24px;
+        transition: color 0.3s ease;
+      }
+      
+      .social-media-links a:hover {
+        color: #007bff;
+      }
+      
+      .footer-bottom {
+        text-align: center;
+        margin-top: 20px;
+      }
+      
+      .footer-bottom p {
+        margin: 0;
+      }
+      

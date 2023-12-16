@@ -51,7 +51,7 @@ const Register = ({register,setRegister}) => {
         <h3 className='text-xs mt-5 text-gray-400'>People who use our service have been able to import your details to Instagram.<a href=''>Learn more</a> 
 
 <br /><h3 className='text-xs text-gray-400 mt-5'>By registering, you agree to our Terms and Conditions, Privacy Policy and Cookie Policy.</h3></h3>
-    <button className='bg-button text-white w-52 h-9 mt-5 ml-1 rounded cursor-default' onClick={()=>
+    <button className='bg-button text-white w-52 h-9 mt-5 ml-1 cursor-default' onClick={()=>
     {  
          add()
        
